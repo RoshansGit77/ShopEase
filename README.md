@@ -6,7 +6,6 @@ ShopEase is a feature-packed e-commerce platform built with modern technologies 
 - **Backend:** Spring Boot 3, Spring Security 6
 - **Frontend:** HTML, CSS, Bootstrap, Thymeleaf
 - **Database:** MySQL
-- **Hosting:** AWS, Heroku
 - **IDE:** Spring Tool Suite (STS)
 
 ### **Key Features:**
