@@ -1,0 +1,41 @@
+.card-sh {
+	box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3) !important;
+}
+
+.cat-div {
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+
+.sh {
+	box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3) !important;
+}
+
+.hv:hover {
+	transform: scale(0.8);
+	/* Shrinks on hover */
+	transition: transform 0.3s ease-in-out;
+}
+
+html,body {
+	height: 100%;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.container-fluid {
+	flex: 1;
+	/* Ensures content expands while pushing footer to bottom */
+}
+
+footer {
+	background-color: #343a40;
+	/* Dark footer */
+	color: white;
+	text-align: center;
+	padding: 10px;
+	position: relative;
+	width: 100%;
+	bottom: 0;
+}

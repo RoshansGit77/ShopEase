@@ -1,37 +1,62 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{base::Layout(~{::section})}">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Spring Boot App</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Spring Boot App</title>
 </head>
+
 <body>
-    
-	
+
 	<section>
-		<h1>login page</h1>	
-		<h2>only this section will be render</h2>
-		<h2>this will also render</h2>
-		
-		<h1>login page</h1>	
-				<h2>only this section will be render</h2>
-				<h2>this will also render</h2>				<h1>login page</h1>	
-						<h2>only this section will be render</h2>
-						<h2>this will also render</h2>						<h1>login page</h1>	
-								<h2>only this section will be render</h2>
-								<h2>this will also render</h2>								<h1>login page</h1>	
-										<h2>only this section will be render</h2>
-										<h2>this will also render</h2>										<h1>login page</h1>	
-												<h2>only this section will be render</h2>
-												<h2>this will also render</h2>												<h1>login page</h1>	
-														<h2>only this section will be render</h2>
-														<h2>this will also render</h2>														<h1>login page</h1>	
-																<h2>only this section will be render</h2>
-																<h2>this will also render</h2>																<h1>login page</h1>	
-																		<h2>only this section will be render</h2>
-																		<h2>this will also render</h2>
+		<div class="container mt-2 p-4">
+			<div class="row">
+				<!--front img-->
+
+				<div class="col-md-6 p-2">
+					<img src="img/agree4.webp" width="90%" height="300px" alt="">
+				</div>
+
+				<!--  create form -->
+				<div class="col md-6 mt-2 p-2">
+
+					<div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
+
+						<div class="card-header">
+							<p class="fs-4 text-center">Login</p>
+						</div>
+
+						<div class="card-body">
+
+							<form>
+								<div class="mb-3">
+									<label class="form-label">Email</label>
+									<input class="form-control" name="email" type="email">
+								</div>
+								<div class="mb-3">
+									<label class="form-label">Password</label>
+									<input class="form-control" name="password" type="password">
+								</div>
+								<button type="submit" class="btn bg-dark text-white rounded-pill sh hv col-md-12">Login</button>
+							</form>
+
+						</div>
+						<div class="card-footer text-center">
+							<a href="#" class="text-decoration-none">Forgot Password</a><br>
+							Don't have an account? <br>
+							<a href="register" class="text-decoration-none">Register here</a>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
 	</section>
-	<h2>this will not render</h2>
-	
+
+
 </body>
+
 </html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{base::Layout(~{::section})}">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Page</title>
+</head>
+
+<body>
+
+	<section>
+		<div class="container p-4">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="card card-sh">
+						<div class="card-header text-center fs-4 sh bg-dark text-white">
+							Add Product
+						</div>
+						<div class="card-body">
+							<!--success/error msg-->
+							<th:block th:if="${session.sucMsg}">
+								<p class="text-success">[[${session.sucMsg}]]</p>
+								<th:block th:text="${@commonServiceImpl.removeSessionMsg()}"></th:block>
+							</th:block>
+
+							<th:block th:if="${session.errMsg}">
+								<p class="text-danger">[[${session.errMsg}]]</p>
+								<th:block th:text="${@commonServiceImpl.removeSessionMsg()}"></th:block>
+							</th:block>
+
+							<form action="/admin/saveProduct" method="post" enctype="multipart/form-data">
+
+								<div class="mb-3">
+									<label>Enter Title</label>
+									<input type="text" name="title" class="form-control">
+
+								</div>
+								<div class="mb-3">
+									<label>Enter Description</label>
+									<textarea rows="3" col="" class="form-control" name="description"></textarea>
+								</div>
+								<div class="mb-3">
+									<label>Select Category</label>
+									<select class="form-control" name="category">
+										<option>select</option>
+										<option th:each="c:${categories}">[[${c.name}]]</option>
+									</select>
+
+								</div>
+								<div class="mb-3">
+									<label>Enter Price</label>
+									<input type="text" name="price" class="form-control">
+
+								</div>
+								<div>
+									<label>Status</label>
+									<div class="d-inline-flex align-items-center gap-3">
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="isActive"
+												id="flexRadioDefault1" checked value="true">
+											<label class="form-check-label" for="flexRadioDefault1">
+												Active
+											</label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="isActive"
+												id="flexRadioDefault2" value="false">
+											<label class="form-check-label" for="flexRadioDefault2">
+												InActive
+											</label>
+										</div>
+									</div>
+								</div>
+								<!--next row-->
+								<div class="row">
+
+									<div class="mb-3 col">
+										<label>Enter stock</label>
+										<input type="text" name="stock" class="form-control">
+									</div>
+
+									<div class="mb-3 col">
+										<label>Upload Image</label>
+										<input type="file" name="file" class="form-control">
+									</div>
+								</div>
+								<button class="btn btn-warning col-md-6 offset-3 rounded-pill sh hv ">Save</button>
+						</div>
+
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{base::Layout(~{::section})}">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<section>
+		<div class="container p-5">
+			<div class="card card-sh">
+				<div class="card-header text-center bg-dark sh text-white">
+					<p class="fs-4">Products</p>
+
+				</div>
+				<div class="card-body">
+					<th:block th:if="${session.sucMsg}">
+						<p class="text-success text-center">[[${session.sucMsg}]]</p>
+						<th:block th:text="${@commonServiceImpl.removeSessionMsg()}"></th:block>
+					</th:block>
+
+					<th:block th:if="${session.errMsg}">
+						<p class="text-danger text-center">[[${session.errMsg}]]</p>
+						<th:block th:text="${@commonServiceImpl.removeSessionMsg()}"></th:block>
+					</th:block>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Sr No.</th>
+								<th scope="col">Image</th>
+								<th scope="col">Title</th>
+								<th scope="col">Category</th>
+								<th scope="col">Price</th>
+								<th scope="col">Discount %</th>
+								<th scope="col">Discount Price</th>
+								<th scope="col">Status</th>
+								<th scope="col">Stock</th>
+								<th scope="col"> Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="p,c:${products}">
+								<th scope="row">[[${c.count}]]</th>
+								<td><img th:src="@{'/img/product_img/'+${p.image}}" height="50px" width="50px"></td>
+								<td>[[${p.title}]]</td>
+								<td>[[${p.category}]]</td>
+								<td>[[${p.price}]]</td>
+								<td>[[${p.discount}]]</td>
+								<td>[[${p.discountPrice}]]</td>
+								<td>[[${p.isActive}]]</td>
+								<td>[[${p.stock}]]</td>
+								<td>
+									<a th:href="@{'/admin/editProduct/'+${p.id}}"
+										class="btn btn-sm btn-primary sh hv">Edit</a>
+									<a th:href="@{'/admin/deleteProduct/'+${p.id}}"
+										class="btn btn-sm btn-danger sh hv">Delete</a>
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+
+</body>
+
+</html>

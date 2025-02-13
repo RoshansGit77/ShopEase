@@ -1,14 +1,117 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{base::Layout(~{::section})}">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Spring Boot App</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Spring Boot App</title>
 </head>
+
 <body>
 	<section>
-		<h1>register page </h1>
+		<div class="container mt-2 p-4">
+			<div class="row">
+				<!--front img-->
+
+				<div class="col-md-6 p-2">
+					<img src="img/agree4.webp" width="90%" height="300px" alt="">
+				</div>
+
+				<!--  create card -->
+				<div class="col md-6 mt-2 p-2">
+
+					<div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
+
+						<div class="card-header">
+							<p class="fs-4 text-center">Registration</p>
+						</div>
+
+						<div class="card-body">
+
+							<!--  create form -->
+							<form action="/saveUser" method="post">
+								<th:block th:if="${session.sucMsg}">
+									<p class="text-success">[[${session.sucMsg}]]</p>
+									<th:block th:text="${@commonServiceImpl.removeSessionMsg()}"></th:block>
+								</th:block>
+
+								<th:block th:if="${session.errMsg}">
+									<p class="text-danger">[[${session.errMsg}]]</p>
+									<th:block th:text="${@commonServiceImpl.removeSessionMsg()}"></th:block>
+								</th:block>
+								<!--row 1-->
+								<div class="row">
+									<div class="col">
+										<label class="form-label">Full Name</label>
+										<input class="form-control" name="name" type="text">
+									</div>
+									<div class="col">
+										<label class="form-label">Mobile Number</label>
+										<input class="form-control" name="mobile" type="number">
+									</div>
+								</div>
+
+								<div class="mb-3">
+									<label class="form-label">Email</label>
+									<input class="form-control" name="email" type="email">
+								</div>
+								<!--row 2-->
+								<div class="row">
+									<div class="col">
+										<label class="form-label">Address</label>
+										<input class="form-control" name="address" type="text">
+									</div>
+									<div class="col">
+										<label class="form-label">City</label>
+										<input class="form-control" name="city" type="text">
+									</div>
+								</div>
+								<!--row 3-->
+								<div class="row">
+									<div class="col">
+										<label class="form-label">State</label>
+										<input class="form-control" name="state" type="text">
+									</div>
+									<div class="col">
+										<label class="form-label">Pincode</label>
+										<input class="form-control" name="pincode" type="number">
+									</div>
+								</div>
+								<!--row 4-->
+								<div class="row">
+									<div class="col">
+										<label class="form-label">Password</label>
+										<input class="form-control" name="password" type="password">
+									</div>
+									<div class="col">
+										<label class="form-label">Confirm Password</label>
+										<input class="form-control" name="conPassword" type="password">
+									</div>
+								</div>
+
+								<!--<div class="mb-3">
+									<label class="form-label">Profile Image</label>
+									<input class="form-control" name="image" type="file">
+								</div>-->
+
+								<button type="submit"
+									class="btn bg-dark sh hv text-white col-md-12 rounded-pill">Register</button>
+							</form>
+
+						</div>
+						<div class="card-footer text-center">
+							Have an account? <br>
+							<a href="login" class="text-decoration-none">Login here</a>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
 	</section>
-    
+
 </body>
+
 </html>

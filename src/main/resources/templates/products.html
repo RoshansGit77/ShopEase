@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{base::Layout(~{::section})}">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Basic HTML Boilerplate</title>
+</head>
+
+<body>
+
+	<section>
+		<div class="container-fluid bg-primary">
+			<div class="row">
+				<div class="col-md-5 offset-md-4 mt-2 fixed-top">
+					<form>
+						<div class="input-group">
+							<input type="text" class="form-control" name="ch" placeholder="Search KrishiMart.com">
+							<button class="btn btn-warning text-dark col-md-1 hv"><i
+									class="fa-solid fa-magnifying-glass hv"></i></button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid mt-1">
+			<div class="row">
+				<div class="col-md-2 mt-4 p-0 ms-4 me-4">
+					<div class="card shadow-sm p-0 mb-5 bg-body-tertiary rounded">
+						<div class="card-body">
+							<p class="fs-4 text-center fs-bold">Categories</p>
+							<div class="list-group">
+								<a href="/products" class="list-group-item list-group-item-action hv sh"
+									th:classappend="${paramValue==''} ? bg-warning : '' " aria-current="true">All</a>
+								<a th:href="@{'/products?category='+${c.name}}" th:each="c:${activeCategories}"
+									th:classappend="${paramValue==c.name} ? bg-warning : '' "
+									class="list-group-item list-group-item-action hv">[[${c.name}]]</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-9 mt-4">
+					<div class="card p-1 shadow-sm p-2 mb-5 bg-body-tertiary rounded">
+						<div class="card-body">
+							<p class="fs-3 text-center">Products</p>
+							<div class="row">
+
+								<th:block th:if="${activeProducts.size>0}">
+
+									<div class="col-md-3 mb-4" th:each="p:${activeProducts}">
+										<div class="card card-sh">
+											<div class="card-body">
+												<img alt=" " th:src="@{'img/product_img/'+${p.image}}" width="100%"
+													height="110px">
+												<p class="fs-5 text-center  fw-bold">[[${p.title}]]</p>
+												<div class="row text-center">
+													<p>
+														<span class="ts-6 fs-4 fw-bold">&#8377;[[${p.discountPrice}]]
+														</span><br>
+														<span
+															class="text-decoration-line-through text-secondary">[[${p.price}]]</span>
+														<span class="fs-6 text-success">[[${p.discount}]]% off</span>
+													</p>
+													<a th:href="@{'/product/'+${p.id}}"
+														class="btn btn-dark col-md-8 offset-md-2 sh rounded-pill hv">View
+														Details</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</th:block>
+
+								<th:block th:unless="${activeProducts.size>0}">
+									<p class="text-center text-danger">Product not available</p>
+								</th:block>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+	</section>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{base::Layout(~{::section})}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KrishiChaya Krishi Kendra</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        /* Fullscreen Background */
+        body {
+            background: url('@{/img/ecom.png}') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Glassmorphic Welcome Box */
+        .welcome-container {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* Fade-In Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom Button */
+        .welcome-btn {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background: #ff6a00;
+            border: none;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .welcome-btn:hover {
+            background: #ff4500;
+        }
+
+        /* About Section */
+        .about-container {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            color: black;
+            width: 80%;
+            margin-top: 50px;
+        }
+
+        .about-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #228B22;
+            text-transform: uppercase;
+        }
+
+        .about-text {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: #ff6a00;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Welcome Section -->
+    <section>
+		<div class="container">
+			
+		
+        <div class="welcome-container text-center">
+            <h1 style="color: green;">🌿 KRISHICHAYA KRISHI KENDRA 🌿</h1>
+            <h1>👋 Welcome to Our Platform!</h1>
+            <p class="fs-5">Empowering Farmers with Modern Agricultural Solutions.</p>
+            <button class="welcome-btn" onclick="window.location.href='#about'">Learn More</button>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <div class="about-container">
+            <h2 class="about-title">🌱 About Us</h2>
+            <p class="about-text">
+                Welcome to <span class="highlight">KrishiChaya Krishi Kendra</span>, your trusted partner in modern farming and agricultural solutions.
+                Our mission is to <strong>bridge the gap between technology and traditional farming</strong> by providing high-quality
+                seeds, fertilizers, pesticides, and expert agricultural guidance.
+            </p>
+
+            <h3 class="text-success">🚜 What We Offer:</h3>
+            <ul class="list-group">
+                <li class="list-group-item">✅ <strong>High-Quality Agricultural Products</strong> – Better yield & sustainability</li>
+                <li class="list-group-item">✅ <strong>Modern Farming Techniques</strong> – Organic & smart farming methods</li>
+                <li class="list-group-item">✅ <strong>Affordable & Reliable Supplies</strong> – Cost-effective solutions</li>
+                <li class="list-group-item">✅ <strong>Expert Consultation</strong> – Personalized advice from agronomists</li>
+                <li class="list-group-item">✅ <strong>Digital Marketplace</strong> – Easy access to essential products</li>
+            </ul>
+
+            <h3 class="text-success">🌾 Our Commitment</h3>
+            <p class="about-text">
+                We are dedicated to helping farmers grow <strong>healthier crops, increase productivity, and achieve financial stability</strong>.
+                Through innovative techniques and reliable agricultural products, we aim to contribute to a greener and more prosperous farming community.
+            </p>
+
+            <a href="#" class="btn welcome-btn">Contact Us</a>
+        </div>
+		</div>
+    </section>
+
+</body>
+
+</html>
